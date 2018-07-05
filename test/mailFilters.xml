@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+	<title>Mail Filters</title>
+	<id>tag:mail.google.com,2008:filters:1530786931071,1530787869174</id>
+	<updated>2018-07-05T10:51:18Z</updated>
+	<author>
+		<name>rcmdnk</name>
+		<email>rcmdnk@gmail.com</email>
+	</author>
+	<entry>
+		<category term='filter'></category>
+		<title>Mail Filter</title>
+		<id>tag:mail.google.com,2008:filter:1530786931071</id>
+		<updated>2018-07-05T10:51:18Z</updated>
+		<content></content>
+		<apps:property name='from' value='foo@example.com'/>
+		<apps:property name='to' value='bar@exmaple.com'/>
+		<apps:property name='subject' value='my subject'/>
+		<apps:property name='hasTheWord' value='this word must be included'/>
+		<apps:property name='doesNotHaveTheWord' value='this word must not be include'/>
+		<apps:property name='hasAttachment' value='true'/>
+		<apps:property name='excludeChats' value='true'/>
+		<apps:property name='label' value='MyLabel1'/>
+		<apps:property name='shouldMarkAsRead' value='true'/>
+		<apps:property name='forwardTo' value='baz@gmail.com'/>
+		<apps:property name='shouldStar' value='true'/>
+		<apps:property name='shouldTrash' value='true'/>
+		<apps:property name='shouldNeverSpam' value='true'/>
+		<apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+		<apps:property name='smartLabelToApply' value='^smartlabel_group'/>
+	</entry>
+	<entry>
+		<category term='filter'></category>
+		<title>Mail Filter</title>
+		<id>tag:mail.google.com,2008:filter:1530787869174</id>
+		<updated>2018-07-05T10:51:18Z</updated>
+		<content></content>
+		<apps:property name='from' value='aa'/>
+		<apps:property name='shouldNeverMarkAsImportant' value='true'/>
+		<apps:property name='smartLabelToApply' value='^smartlabel_personal'/>
+		<apps:property name='size' value='33'/>
+		<apps:property name='sizeOperator' value='s_sl'/>
+		<apps:property name='sizeUnit' value='s_smb'/>
+	</entry>
+</feed>

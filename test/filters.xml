@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:apps="http://schemas.google.com/apps/2006">
+  <entry>
+    <apps:property name="shouldTrash" value="true"/>
+    <apps:property name="from" value="foo@example.com"/>
+    <apps:property name="shouldAlwaysMarkAsImportant" value="true"/>
+    <apps:property name="hasAttachment" value="true"/>
+    <apps:property name="doesNotHaveTheWord" value="this word must not be include"/>
+    <apps:property name="subject" value="my subject"/>
+    <apps:property name="label" value="MyLabel1"/>
+    <apps:property name="to" value="bar@exmaple.com"/>
+    <apps:property name="shouldNeverSpam" value="true"/>
+    <apps:property name="shouldMarkAsRead" value="true"/>
+    <apps:property name="shouldStar" value="true"/>
+    <apps:property name="excludeChats" value="true"/>
+    <apps:property name="forwardTo" value="baz@gmail.com"/>
+    <apps:property name="smartLabelToApply" value="^smartlabel_group"/>
+    <apps:property name="hasTheWord" value="this word must be included"/>
+  </entry>
+  <entry>
+    <apps:property name="sizeUnit" value="s_smb"/>
+    <apps:property name="from" value="aa"/>
+    <apps:property name="smartLabelToApply" value="^smartlabel_personal"/>
+    <apps:property name="size" value="33"/>
+    <apps:property name="shouldNeverMarkAsImportant" value="true"/>
+    <apps:property name="sizeOperator" value="s_sl"/>
+  </entry>
+</feed>
