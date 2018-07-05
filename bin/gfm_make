@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import sys
+import xml.etree.ElementTree as ET
+import xml.dom.minidom
+import yaml
+
+yaml_input = sys.argv[1] if len(sys.argv) > 1 else "mailFilters.yaml"
+if yaml_input in ["-h", "--help", "help"]:
+    print("Usage: %s [input.yaml [output.xml]]" % sys.argv[0])
+    sys.exit(0)
+xml_output = sys.argv[2] if len(sys.argv) > 2 else "filters.xml"
+
+with open(yaml_input, "r") as f:
+    data = yaml.safe_load(f)
+
+if "namespaces" in data:
+    namespaces = data["namespaces"]
+    if "atom" in namespaces:
+        namespaces[""] = namespaces["atom"]
+        del namespaces["atom"]
+else:
+    namespaces = {"": "http://www.w3.org/2005/Atom",
+                  "apps": "http://schemas.google.com/apps/2006"}
+
+for k, v in namespaces.items():
+    ET.register_namespace(k, v)
+
+root = ET.Element('feed')
+for f in data["filters"]:
+    entry = ET.SubElement(root, "{" + namespaces[""] + "}" + 'entry')
+    for k, v in f.items():
+        prop = ET.SubElement(entry, "{" + namespaces["apps"] + "}property",
+                             attrib={"name": k, "value":v})
+
+my_filter = xml.dom.minidom.parseString(ET.tostring(root)).toprettyxml(
+    indent="  ", encoding="utf-8")
+
+with open(xml_output, "w") as f:
+    f.write(my_filter)
