@@ -30,10 +30,19 @@ for k, v in namespaces.items():
 
 root = ET.Element('feed')
 for f in data["filters"]:
-    entry = ET.SubElement(root, "{" + namespaces[""] + "}" + 'entry')
-    for k, v in f.items():
-        prop = ET.SubElement(entry, "{" + namespaces["apps"] + "}property",
-                             attrib={"name": k, "value":v})
+    if "label" in f:
+        labels = f["label"] if type(f["label"]) == list else [f["label"]]
+        del f["label"]
+    else:
+        labels = [None]
+    for label in labels:
+        entry = ET.SubElement(root, "{" + namespaces[""] + "}" + 'entry')
+        properties = f
+        if label is not None:
+            properties["label"] = label
+        for k, v in properties.items():
+            ET.SubElement(entry, "{" + namespaces["apps"] + "}property",
+                          attrib={"name": k, "value":v})
 
 my_filter = xml.dom.minidom.parseString(ET.tostring(root)).toprettyxml(
     indent="  ", encoding="utf-8")
