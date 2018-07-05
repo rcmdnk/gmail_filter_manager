@@ -44,4 +44,5 @@ for e in root.findall("./atom:entry", namespaces):
 data = {"namespaces": namespaces, "filters": filters}
 
 with open(yaml_output, "w") as stream:
-    yaml.dump(data, default_flow_style=False, allow_unicode=True, stream=stream)
+    yaml.dump(data, default_flow_style=False, allow_unicode=True,
+              stream=stream)
