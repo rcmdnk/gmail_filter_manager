@@ -1,25 +1,25 @@
 filters:
-- doesNotHaveTheWord: "this word must not be include"
-  excludeChats: 'true'
-  forwardTo: baz@gmail.com
-  from: foo@example.com
-  hasAttachment: 'true'
-  hasTheWord: "this word must be included"
-  label: MyLabel1
-  shouldAlwaysMarkAsImportant: 'true'
-  shouldMarkAsRead: 'true'
-  shouldNeverSpam: 'true'
-  shouldStar: 'true'
-  shouldTrash: 'true'
-  smartLabelToApply: ^smartlabel_group
-  subject: "my subject"
-  to: bar@exmaple.com
-- from: aa
-  shouldNeverMarkAsImportant: 'true'
-  size: '33'
-  sizeOperator: s_sl
-  sizeUnit: s_smb
-  smartLabelToApply: ^smartlabel_personal
+  - excludeChats: "true"
+    from: "foo@example.com"
+    shouldTrash: "true"
+    hasAttachment: "true"
+    doesNotHaveTheWord: "this word must not be include"
+    label: "MyLabel1"
+    to: "bar@exmaple.com"
+    shouldAlwaysMarkAsImportant: "true"
+    shouldNeverSpam: "true"
+    shouldMarkAsRead: "true"
+    shouldStar: "true"
+    subject: "my subject てすと"
+    forwardTo: "baz@gmail.com"
+    smartLabelToApply: "^smartlabel_group"
+    hasTheWord: "this word must be included"
+  - from: "aa"
+    shouldNeverMarkAsImportant: "true"
+    sizeUnit: "s_smb"
+    smartLabelToApply: "^smartlabel_personal"
+    size: "33"
+    sizeOperator: "s_sl"
 namespaces:
   apps: http://schemas.google.com/apps/2006
   atom: http://www.w3.org/2005/Atom

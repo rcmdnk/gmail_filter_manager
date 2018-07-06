@@ -14,7 +14,7 @@
 		<content></content>
 		<apps:property name='from' value='foo@example.com'/>
 		<apps:property name='to' value='bar@exmaple.com'/>
-		<apps:property name='subject' value='my subject'/>
+		<apps:property name='subject' value='my subject てすと'/>
 		<apps:property name='hasTheWord' value='this word must be included'/>
 		<apps:property name='doesNotHaveTheWord' value='this word must not be include'/>
 		<apps:property name='hasAttachment' value='true'/>
