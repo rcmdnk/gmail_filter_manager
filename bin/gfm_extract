@@ -4,7 +4,8 @@ from __future__ import print_function
 
 import sys
 import xml.etree.ElementTree as ET
-import ruamel.yaml as yaml
+from ruamel.yaml.scalarstring import DoubleQuotedScalarString
+import ruamel.yaml
 
 xml_input = sys.argv[1] if len(sys.argv) > 1 else "mailFilters.xml"
 if xml_input in ["-h", "--help", "help"]:
@@ -14,15 +15,9 @@ yaml_output = sys.argv[2] if len(sys.argv) > 2 else "mailFilters.yaml"
 
 namespaces = {str(x[0]) if x[0] != "" else "atom": x[1]
               for _, x in ET.iterparse(xml_input, events=['start-ns'])}
+
 tree = ET.parse(xml_input)
 root = tree.getroot()
-
-class quoted(unicode):
-    pass
-
-def quoted_presenter(dumper, data):
-    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='"')
-yaml.add_representer(quoted, quoted_presenter)
 
 filters = []
 for e in root.findall("./atom:entry", namespaces):
@@ -30,19 +25,16 @@ for e in root.findall("./atom:entry", namespaces):
     for p in e.findall("./apps:property", namespaces):
         name = p.get("name")
         value = p.get("value")
-        if name in ["subject", "hasTheWord", "doesNotHaveTheWord"]:
-            properties[name] =quoted(value.decode()) if type(value) == str\
-                                                     else quoted(value)
-        else:
-            properties[name] = value
-    if not properties.has_key("size"):
+        properties[name] = DoubleQuotedScalarString(value)
+    if not "size" in properties:
         for noneed in ["sizeOperator", "sizeUnit"]:
-            if properties.has_key(noneed):
+            if noneed in properties:
                 del properties[noneed]
     filters.append(properties)
 
 data = {"namespaces": namespaces, "filters": filters}
 
+yaml = ruamel.yaml.YAML()
+yaml.indent(mapping=2, sequence=4, offset=2)
 with open(yaml_output, "w") as stream:
-    yaml.dump(data, default_flow_style=False, allow_unicode=True,
-              stream=stream)
+    yaml.dump(data, stream=stream)
