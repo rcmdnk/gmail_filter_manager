@@ -231,3 +231,7 @@ so that it makes easy to modify with the web interface.
 Although you still need to "modify"
 **hasTheWord: "-label:99_DummyInbox"** filter after any other filter changes...
 (such adding one space in **Has the words** and save, and remove the space and save again...)
+
+## References
+
+* [gmail_filter_manager: GmailのフィルタをYAMLで簡単に管理する](https://rcmdnk.com/blog/2018/07/07/computer-gmail-python/)
