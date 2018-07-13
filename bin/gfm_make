@@ -32,7 +32,7 @@ for k, v in namespaces.items():
 root = ET.Element('feed')
 for f in data["filters"]:
     if "label" in f:
-        labels = f["label"] if type(f["label"]) == list else [f["label"]]
+        labels = f["label"] if isinstance(f["label"], list) else [f["label"]]
         del f["label"]
     else:
         labels = [None]
