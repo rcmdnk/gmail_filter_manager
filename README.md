@@ -5,7 +5,7 @@ Gmail filer manager using YAML format.
 
 Python packages:
 
-* rumel.yaml (`pip install rumel.yaml`)
+* ruamel.yaml (`pip install ruamel.yaml`)
 
 ## Installation
 
