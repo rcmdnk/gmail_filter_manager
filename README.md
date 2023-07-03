@@ -1,31 +1,43 @@
 # gmail_filter_manager
+
 Gmail filer manager using YAML format.
-
-## Requirement
-
-Python packages:
-
-* ruamel.yaml (`pip install ruamel.yaml`)
 
 ## Installation
 
-If you are using Mac and [Homebrew](https://github.com/mxcl/homebrew),
-you can install by:
+By pip:
 
-    $ brew install rcmdnk/rcmdnkpac/gmail_filter_manager
+```
+$ pip install gmail_filter_manager
+```
 
-Otherwise, you can use install script on the web like:
+By Homebrew:
 
-    $ curl -fsSL https://raw.github.com/rcmdnk/gmail_filter_manager/install/install.sh| sh
+```
+$ brew install rcmdnk/rcmdnkpac/gmail_filter_manager
+```
+
+By script:
+
+```
+$ curl -fsSL https://raw.github.com/rcmdnk/gmail_filter_manager/install/install.sh| sh
+```
 
 This will install scripts to `/usr/bin`
 and you may be asked root password.
 
 If you want to install other directory, do like:
 
-    $ curl -fsSL https://raw.github.com/rcmdnk/gmail_filter_manager/install/install.sh|  prefix=~/usr/local/ sh
+```
+$ curl -fsSL https://raw.github.com/rcmdnk/gmail_filter_manager/install/install.sh|  prefix=~/usr/local/ sh
+```
 
 Or, simply download scripts in bin/ and place where you like.
+
+If you use the script directly, you need to install ruaml.yaml:
+
+```
+$ pip install ruamel.yaml
+```
 
 ## Scripts
 
@@ -39,7 +51,9 @@ Default ouput name is **mailFilters.yaml**.
 
 They can be changed by arguments:
 
-    $ gfm_extract [input name [output name]]
+```
+$ gfm_extract [input name [output name]]
+```
 
 Once you have YAML file,
 you can edit it and use it as an input for `gfm_make`.
@@ -73,18 +87,18 @@ but it will be automatically added by `gfm_make` even if is omitted.
 
 ### Filter Criteria Properties
 
-Name|XML attribute|Description
-:---|:------------|:----------
-From|name="from"|The email comes from this address.
-To|name="to"|The email is sent to this address.
-Subject|name="subject"|The email's title includes this value.
-Has the words|name="hasTheWord"|The email has this value (search operators).
-Doesn't have|name="doesNotHaveTheWord"|The email doesn't have this value (search operators).
-Has attachment|name="hasAttachment"|true or false for if the email has attachments.
-Don't include chats|name="excludeChats"|true or false for if the email includes chats.
-Size|name="size"|The email size. If it is specified, the mail size is compared to this value with sizeOperator and sizeUnit.
-Size operator|name="sizeOperator"|s_sl (greater than) or s_ss (smaller than).
-Size unit|name="sizeUnit"|Unit of email size: s_sb (B), s_skb (kB) or s_smb (MB).
+| Name                | XML attribute             | Description                                                                                                 |
+| :------------------ | :------------------------ | :---------------------------------------------------------------------------------------------------------- |
+| From                | name="from"               | The email comes from this address.                                                                          |
+| To                  | name="to"                 | The email is sent to this address.                                                                          |
+| Subject             | name="subject"            | The email's title includes this value.                                                                      |
+| Has the words       | name="hasTheWord"         | The email has this value (search operators).                                                                |
+| Doesn't have        | name="doesNotHaveTheWord" | The email doesn't have this value (search operators).                                                       |
+| Has attachment      | name="hasAttachment"      | true or false for if the email has attachments.                                                             |
+| Don't include chats | name="excludeChats"       | true or false for if the email includes chats.                                                              |
+| Size                | name="size"               | The email size. If it is specified, the mail size is compared to this value with sizeOperator and sizeUnit. |
+| Size operator       | name="sizeOperator"       | s_sl (greater than) or s_ss (smaller than).                                                                 |
+| Size unit           | name="sizeUnit"           | Unit of email size: s_sb (B), s_skb (kB) or s_smb (MB).                                                     |
 
 **hasTheWord** and **doesNotHaveTheWord** are search operators.
 Such a label can be specified here.
@@ -94,18 +108,19 @@ Please check following help for more details:
 > [Search operators you can use with Gmail - Gmail Help](https://support.google.com/mail/answer/7190)
 
 ### Filter Action Properties
-Name|XML attribute|Description
-:---|:------------|:----------
-Skip the Inbox (Archive it)|name="shouldArchive"
-Mark as read|name="shouldMarkAsRead"|
-Star it|name="shouldStar"|
-Apply the label|name="label"|
-Forward it to|name="forwrdTo"
-Delete it|name="shouldTrash"|
-Never send it to Spam|name="shouldNeverSpam"|
-Always mark it as important|name="shouldAlwaysMarkAsImportant"|
-Never mark it as important|name="should
-Categorize as|name="smartLabelToApply"|Add smart label. value can be "^smartlabel_personal", "^smartlabel_social", "^smartlabel_promo", "^smartlabel_group" or "^smartlabel_notification".
+
+| Name                        | XML attribute                      | Description                                                                                                                                         |
+| :-------------------------- | :--------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Skip the Inbox (Archive it) | name="shouldArchive"               |                                                                                                                                                     |
+| Mark as read                | name="shouldMarkAsRead"            |                                                                                                                                                     |
+| Star it                     | name="shouldStar"                  |                                                                                                                                                     |
+| Apply the label             | name="label"                       |                                                                                                                                                     |
+| Forward it to               | name="forwrdTo"                    |                                                                                                                                                     |
+| Delete it                   | name="shouldTrash"                 |                                                                                                                                                     |
+| Never send it to Spam       | name="shouldNeverSpam"             |                                                                                                                                                     |
+| Always mark it as important | name="shouldAlwaysMarkAsImportant" |                                                                                                                                                     |
+| Never mark it as important  | name="should                       |                                                                                                                                                     |
+| Categorize as               | name="smartLabelToApply"           | Add smart label. value can be "^smartlabel_personal", "^smartlabel_social", "^smartlabel_promo", "^smartlabel_group" or "^smartlabel_notification". |
 
 Tips:
 
@@ -138,8 +153,8 @@ Then, these labels are listed in this order.
 
 Gmail has only **label**, but some other mail clients have **folder**.
 
-* Label: User can set several labels on the same message.
-* Folder: A message is included only in one folder.
+- Label: User can set several labels on the same message.
+- Folder: A message is included only in one folder.
 
 And all filters are always applied to the new mail.
 
@@ -154,15 +169,17 @@ only the mail which still does not have the label can be caught.
 
 e.g.)
 
-    filters:
-    - hasTheWord: "from:foo@example.com"
-      label: "00_foo"
-    - hasTheWord: "has:nouserlabels from:example.com"
-      label: "01_example"
-      shouldArchive: "true"
-    - hasTheWord: "has:nouserlabels"
-      label: "09_others"
-      shouldArchive: "true"
+```
+filters:
+- hasTheWord: "from:foo@example.com"
+  label: "00_foo"
+- hasTheWord: "has:nouserlabels from:example.com"
+  label: "01_example"
+  shouldArchive: "true"
+- hasTheWord: "has:nouserlabels"
+  label: "09_others"
+  shouldArchive: "true"
+```
 
 These filters put a label **foo** for mails from **foo@example.com**,
 and put a label **example** for mails from **example.com** domain other than **foo@example.com**.
@@ -189,27 +206,29 @@ setting **shouldArchive: "true"** for filters.
 
 The setting is like this:
 
-    filters:
-    - hasTheWord: "from:foo@example.com"
-      label:
-      - "00_foo"
-      - "99_DummyInbox"
-    - hasTheWord: "from:example.com"
-      label:
-      - "01_example"
-      - "99_DummyInbox"
-    - hasTheWord: "from:example2.com"
-      label: "02_example2"
-    - hasTheWord: "from:example3.com"
-      label: "03_example3"
-    - hasTheWord: "from:example4.com"
-      label: "04_example4"
-    - hasTheWord: "from:example5.com"
-      label: "05_example5"
-    - hasTheWord: "has:nouserlabels"
-      label: "09_others"
-    - hasTheWord: "-label:99_DummyInbox"
-      shouldArchive: "true"
+```
+filters:
+- hasTheWord: "from:foo@example.com"
+  label:
+  - "00_foo"
+  - "99_DummyInbox"
+- hasTheWord: "from:example.com"
+  label:
+  - "01_example"
+  - "99_DummyInbox"
+- hasTheWord: "from:example2.com"
+  label: "02_example2"
+- hasTheWord: "from:example3.com"
+  label: "03_example3"
+- hasTheWord: "from:example4.com"
+  label: "04_example4"
+- hasTheWord: "from:example5.com"
+  label: "05_example5"
+- hasTheWord: "has:nouserlabels"
+  label: "09_others"
+- hasTheWord: "-label:99_DummyInbox"
+  shouldArchive: "true"
+```
 
 This setting put additional **99_DummyInbox** label
 to which you want to remain in the Inbox.
@@ -234,4 +253,4 @@ Although you still need to "modify"
 
 ## References
 
-* [gmail_filter_manager: GmailのフィルタをYAMLで簡単に管理する](https://rcmdnk.com/blog/2018/07/07/computer-gmail-python/)
+- [gmail_filter_manager: GmailのフィルタをYAMLで簡単に管理する](https://rcmdnk.com/blog/2018/07/07/computer-gmail-python/)
