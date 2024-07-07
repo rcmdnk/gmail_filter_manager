@@ -1009,13 +1009,13 @@ files = [
 
 [[package]]
 name = "pep8-naming"
-version = "0.13.3"
+version = "0.14.1"
 description = "Check PEP-8 naming conventions, plugin for flake8"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "pep8-naming-0.13.3.tar.gz", hash = "sha256:1705f046dfcd851378aac3be1cd1551c7c1e5ff363bacad707d43007877fa971"},
-    {file = "pep8_naming-0.13.3-py3-none-any.whl", hash = "sha256:1a86b8c71a03337c97181917e2b472f0f5e4ccb06844a0d6f0a33522549e7a80"},
+    {file = "pep8-naming-0.14.1.tar.gz", hash = "sha256:1ef228ae80875557eb6c1549deafed4dabbf3261cfcafa12f773fe0db9be8a36"},
+    {file = "pep8_naming-0.14.1-py3-none-any.whl", hash = "sha256:63f514fc777d715f935faf185dedd679ab99526a7f2f503abb61587877f7b1c5"},
 ]
 
 [package.dependencies]
@@ -1110,13 +1110,13 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pyproject-pre-commit"
-version = "0.1.9"
+version = "0.1.10"
 description = "pre-commit hooks for python projects using pyproject.toml."
 optional = false
 python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "pyproject_pre_commit-0.1.9-py3-none-any.whl", hash = "sha256:1413a6a5dc9c8a30bb2a93ad6c4e06da300d65d21007a0c70fe4ab50343b6990"},
-    {file = "pyproject_pre_commit-0.1.9.tar.gz", hash = "sha256:d49069c8f6557f46df910896c8f37bbe34c3e9f707e1432951c98e5ad1f120d6"},
+    {file = "pyproject_pre_commit-0.1.10-py3-none-any.whl", hash = "sha256:7fc43564183e53f008033de7d20cbb6ee17051a8d779f4531ae5f79558db6218"},
+    {file = "pyproject_pre_commit-0.1.10.tar.gz", hash = "sha256:53c222f395d2c13b98427d9da19d34fb8d126a0cf067acf2f15547f7ff3f2b62"},
 ]
 
 [package.dependencies]
@@ -1144,7 +1144,7 @@ mdformat-frontmatter = ">=2.0.1,<3.0.0"
 mdformat-gfm = ">=0.3.5,<0.4.0"
 mypy = ">=1.5.1,<2.0.0"
 numpydoc = ">=1.6.0,<2.0.0"
-pep8-naming = ">=0.13.3,<0.14.0"
+pep8-naming = ">=0.14.0,<0.15.0"
 pre-commit = ">=3.3.3,<4.0.0"
 pycodestyle = ">=2.11.0,<3.0.0"
 shellcheck-py = ">=0.9.0.5,<0.10.0.0"
@@ -1632,4 +1632,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "c9974113720969681945f78bc93601a05efe1a5725667aa6e61728303d38055a"
+content-hash = "39de4affbe0d8a422575dc76c75904d38dc033542191d60eb221e00d100df7af"
