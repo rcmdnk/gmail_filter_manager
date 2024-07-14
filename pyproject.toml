@@ -17,7 +17,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
-ruamel-yaml = "^0.17.32"
+ruamel-yaml = "^0.18.0"
 
 [tool.poetry.group.dev.dependencies]
 pyproject-pre-commit = "0.1.10"
